@@ -1,9 +1,14 @@
+<!-- prima pagina che vede l'utente, se loggato -->
+
+<!-- scena 3d, con animazioni di ingresso, ma senza le animazioni dello scroll  -->
 <app-saturno
   [usaAnimazioniIngresso]="true"
   [usaAnimazioniScroll]="false">
 </app-saturno>
+<!-- carosello 'hero' delle novita -->
 <app-carosello-novita></app-carosello-novita>
 
+<!-- menu di prova -->
 <ul class="menuu">
   <li>
     <a href="javascript:void(0)" [routerLink]="['/catalogo/film']">
@@ -18,5 +23,9 @@
 </ul>
 <div class="catalogo-contenuto">
 
-<p>cicaoo</p>
+  <section id="locandine_container">
+    <ng-container *ngFor="let riga of righeDemo; trackBy: tracciaRigaCategoria">
+
+    </ng-container>
+  </section>
 </div>

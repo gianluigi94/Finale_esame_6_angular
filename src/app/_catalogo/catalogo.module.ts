@@ -12,12 +12,13 @@ import { SaturnoModule } from '../_componenti_comuni/saturno/saturno.module';
     CatalogoComponent,
     FilmComponent,
     SerieComponent,
+
   ],
   imports: [
     CommonModule,
     CatalogoRoutingModule,
-    ComponentiComuniModule, // 👈 così anche qui puoi usare <app-saturno>, ecc.
-    SaturnoModule,
+    ComponentiComuniModule, // utilizzo dei componenti comunti
+    SaturnoModule, // utilizzo di saturno
   ],
 })
 export class CatalogoModule {}

@@ -42,8 +42,8 @@ import { PaginaCaricamentoComponent } from './pagina-caricamento/pagina-caricame
     ToastContainerComponent,
     CaroselloNovitaComponent,
     SpinnerComponent,
-    PaginaCaricamentoComponent, // 👈 aggiunto
+    PaginaCaricamentoComponent,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // per poter usare il tag <video-js>
 })
 export class ComponentiComuniModule {}
