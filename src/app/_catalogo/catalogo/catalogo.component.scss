@@ -10,7 +10,7 @@ app-carosello-novita{
   position: fixed;
   top: 0;
   left: 0;
-
+z-index: 0;
 }
 
 
@@ -33,6 +33,7 @@ p{
   top: 0;
   left: 0;
   margin-top: 82vh;
+  z-index: 5;
 
 }
 
@@ -40,6 +41,6 @@ app-riga-categoria {
   display: block;
   will-change: opacity, transform;
   transform-origin: center center;
-  pointer-events: none!important;
+  // pointer-events: none!important;
 
 }

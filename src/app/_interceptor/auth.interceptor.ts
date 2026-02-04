@@ -30,19 +30,28 @@ export class AuthInterceptor implements HttpInterceptor {
     let reqDaUsare = req;
 
     // niente bearer sulle chiamate /accedi e /traduzioni-lingua
-    if (!req.url.includes('/accedi') && !req.url.includes('/traduzioni-lingua')) {
-      const auth = this.authService.leggiAuthDaStorage();
-      const tk = auth?.tk;
+    const senzaBearer =
+  req.url.includes('/accedi') ||
+  req.url.includes('/traduzioni-lingua') ||
+  req.url.includes('/categorie') ||
+  req.url.includes('/categorie-traduzioni') ||
+  req.url.includes('/lingue') ||
+  req.url.includes('/traduzioni') ||
+  req.url.includes('/traduzioni-custom') ||
+  req.url.includes('/traduzioni-effettive');
 
+if (!senzaBearer) {
+   const auth = this.authService.leggiAuthDaStorage();
+   const tk = auth?.tk;
 
-      if (tk) {
-        reqDaUsare = req.clone({
-          setHeaders: {
-            Authorization: `Bearer ${tk}`,
-          },
-        });
-      }
-    }
+   if (tk) {
+     reqDaUsare = req.clone({
+       setHeaders: {
+         Authorization: `Bearer ${tk}`,
+       },
+     });
+   }
+ }
 
     return next.handle(reqDaUsare).pipe(
 

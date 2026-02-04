@@ -11,44 +11,12 @@ import { UtilityService } from '../_benvenuto/login/_login_service/login_utility
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  //  protected calcolaRisorsa(risorsa: (string | number)[]): string {
-  //   const server: string = environment.apiBaseUrl;
-  //   const versione: string = 'v1';
 
-  //   // costruiamo i pezzi SENZA slash finale
-  //   const segments = [server, versione, ...risorsa.map(String)];
-  //   const url = segments.join('/');
-
-  //   return url;
-  // }
-
-  // protected calcolaRisorsa(risorsa: (string | number)[]): string {
-  //   // const server: string = 'http://localhost/science_codex/public/api';
-  //   const server: string = '/api';
-  //   const versione: string = 'v1';
-  //   let url = server + '/' + versione + '/';
-  //   risorsa.forEach((x) => {
-  //     url = url + x + '/';
-  //   });
-  //   return url;
-  // }
-
-  //questo sotto
-  // protected calcolaRisorsa(risorsa: (string | number)[]): string {
-  //   const server: string = 'http://192.168.1.36/science_codex/public/api';
-  //   const versione: string = 'v1';
-
-  //   // pezzi tipo: http://localhost/science_codex/public/api/v1/film
-  //   const segments = [server, versione, ...risorsa.map(String)];
-  //   const url = segments.join('/');
-
-  //   return url;
-  // }
-
-  //sotto produzione
   protected calcolaRisorsa(risorsa: (string | number)[]): string {
     // const server: string = 'https://api.sciencecodex.net/api';
-    const server: string = 'http://localhost/science_codex/public/api';
+    // const server: string = 'http://localhost/science_codex/public/api';
+    // const server: string = 'http://192.168.1.36/science_codex/public/api';
+    const server: string = 'http://localhost/Finale_esame_6_laravel-main/public/api';
     const versione: string = 'v1';
 
     const segments = [server, versione, ...risorsa.map(String)];
@@ -78,6 +46,13 @@ export class ApiService {
     const risorsa: string[] = ['categorie'];
     return this.richiestaGenerica(risorsa, 'GET');
   }
+
+public getElencoCategorie(codiceLingua: string): Observable<IRispostaServer> {
+   const risorsa: string[] = ['categorie'];
+  const parametri = { lingua: codiceLingua };
+  return this.richiestaGenerica(risorsa, 'GET', parametri);
+ }
+
 
   public getTipologiaIndirizzo(id: string): Observable<IRispostaServer> {
     const risorsa: string[] = ['categorie', id];

@@ -21,11 +21,14 @@
     </a>
   </li>
 </ul>
-<div class="catalogo-contenuto">
-
-  <section id="locandine_container">
-    <ng-container *ngFor="let riga of righeDemo; trackBy: tracciaRigaCategoria">
-
-    </ng-container>
-  </section>
-</div>
+ <div class="catalogo-contenuto">
+   <section id="locandine_container">
+     <ng-container *ngFor="let riga of righeDemo; trackBy: tracciaRigaCategoria">
+              <app-riga-categoria
+           [codiceCategoria]="riga.category"
+  [titoloCategoria]="riga.nomeCategoria"
+         [locandine]="riga.posters">
+       </app-riga-categoria>
+     </ng-container>
+   </section>
+ </div>

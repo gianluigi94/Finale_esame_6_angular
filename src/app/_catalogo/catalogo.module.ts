@@ -7,11 +7,15 @@ import { FilmComponent } from './film/film.component';
 import { SerieComponent } from './serie/serie.component';
 import { ComponentiComuniModule } from '../_componenti_comuni/componenti-comuni.module';
 import { SaturnoModule } from '../_componenti_comuni/saturno/saturno.module';
+import { RigaCategoriaComponent } from './app-riga-categoria/riga-categoria.component';
+
 @NgModule({
   declarations: [
     CatalogoComponent,
     FilmComponent,
     SerieComponent,
+    RigaCategoriaComponent,
+
 
   ],
   imports: [
